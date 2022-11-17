@@ -16,7 +16,7 @@ export default function Home() {
           {/* <a href="/options">Go &rarr;</a> */}
           <Link to={"/applications"}>Go &rarr;</Link>
         </div>
-        <div className='contentOne'>
+        <div className='contentTwo'>
           <Side />
         </div>
       </div>

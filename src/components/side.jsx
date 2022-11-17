@@ -3,6 +3,7 @@ import '../styles/topbar.css'
 
 export default function Side() {
   return (
-    <img src='/coverimg.jpg' width="800px" height="500px" />
+    // <img src='/coverimg.jpg' width="800px" height="500px" />
+    <img src='/coverimg.jpg' width="500px" height="400px" />
   );
   }

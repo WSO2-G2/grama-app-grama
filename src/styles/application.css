@@ -1,0 +1,53 @@
+.app{
+    display: flex;
+    background-color: white;
+}
+
+.app a{
+    font-size: 18px;
+    font-weight: 350;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: coral;
+    border-style: solid;
+    margin: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width:auto;
+    text-decoration: none;
+    color: black;
+    float: right;
+}
+
+.action{
+    display: flex;
+    flex-direction: column;
+}
+
+.action a{
+    font-size: small;
+}
+
+.app-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+.app table{
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+.app table th{
+    background-color:paleturquoise;
+    font-weight: 400;
+}
+
+.app table td{
+    padding: 5px;
+    text-align: center;
+}

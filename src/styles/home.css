@@ -14,6 +14,10 @@
     flex: 6;
 }
 
+.contentTwo{
+    flex: 4;
+}
+
 .contentOne a{
     margin: 10% 30% 10% 4%;
     font-size: 18px;
