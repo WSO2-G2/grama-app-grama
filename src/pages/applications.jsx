@@ -32,7 +32,7 @@ export default function Applications() {
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
-                <td><button onclick="window.open('/coverimg.jpg','_blank')">Open</button></td>
+                <td><a href='/coverimg.jpg' target='_blank'>View</a></td>
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaTimesCircle color='red'/></td>
                 <td><FaSpinner color='blue'/></td>
@@ -42,7 +42,7 @@ export default function Applications() {
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
-                <td><a>File</a></td>
+                <td><a href='/coverimg.jpg' target='_blank'>View</a></td>
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaSpinner color='blue'/></td>
