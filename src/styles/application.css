@@ -38,7 +38,7 @@
 }
 
 .app table{
-    border-style: solid;
+    border-style:solid;
     border-collapse: collapse;
 }
 
@@ -48,6 +48,6 @@
 }
 
 .app table td{
-    padding: 5px;
+    padding: 4px;
     text-align: center;
 }
