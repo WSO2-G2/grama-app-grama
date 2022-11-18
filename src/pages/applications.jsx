@@ -42,7 +42,7 @@ export default function Applications() {
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
-                <td><a href='/coverimg.jpg' target='_blank'>View</a></td>
+                <td><a href='https://res.cloudinary.com/dwb3ufwzf/image/upload/v1668753481/grama-app/Grama_app_g18lmj.png' target='_blank'>View</a></td>
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaSpinner color='blue'/></td>
