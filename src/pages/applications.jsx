@@ -52,7 +52,10 @@ export default function Applications() {
           <div className='app-content'>
             <h2>Pending Applications</h2>
           <table border="1">
-            <thead>
+              {(requests.length == 0) && ('No application requests found.')}
+              {(requests.length != 0) && (
+                <>
+                <thead>
                 <th>NIC or Passport No</th>
                 <th>Name</th>
                 <th>Address</th>
@@ -61,9 +64,7 @@ export default function Applications() {
                 <th>Police Check</th>
                 <th>Address Check</th>
                 <th>Action</th>
-            </thead>
-              {(requests.length == 0) && ('No application requests found.')}
-              {(requests.length != 0) && (
+              </thead>
                 <tbody>
                   {requests.forEach(r=>{
                     <tr key={r.nic}>
@@ -85,6 +86,7 @@ export default function Applications() {
                     </tr>
                   })}
                 </tbody>
+                </>
               )}
               {/* <tr>
                 <td>997682521V</td>
