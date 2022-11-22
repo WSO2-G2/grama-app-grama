@@ -4,25 +4,37 @@ import TopBar from '../components/topbar';
 import Side from '../components/side';
 import { Link } from 'react-router-dom';
 import { FaBeer, FaCheck, FaCheckCircle, FaSpinner, FaTimes, FaTimesCircle } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Applications() {
 
   const accessToken = JSON.parse(localStorage.getItem("API_TOKEN")).access_token;
+  const [requests, setRequests] = useState([]);
+
+  function updateStatus(status){
+    console.log(status);
+  }
 
   useEffect(()=>{
 
-    axios.get('',{
-      params: {
-        // 'nic': `${newid}`
-        'nic':'987611421v'
-      },
+    const getUserDetails = ()=>{
+      return axios.get('',{
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        }
+      })
+    }
 
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-      }
-    }).then(res=>{
+    const getRequestDetails = ()=>{
+      return axios.get('',{
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        }
+      })
+    }
+
+    Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
       console.log(res)
     }).catch(err=>{
       console.log(err)
@@ -51,7 +63,29 @@ export default function Applications() {
                 <th>Action</th>
             </thead>
             <tbody>
-              <tr>
+              {(requests.length == 0) && ('No application requests found.')}
+              {(requests.length != 0) && (
+                  requests.forEach(r=>{
+                    <tr key={r.nic}>
+                      <td>{r.nic}</td>
+                      <td>{r.fullName}</td>
+                      <td>{r.address}</td>
+                      <td><Link to={r.image} target='_blank'>View</Link></td>
+                      <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
+                      <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
+                      <td>
+                        ({r.addCheck == 'accepted'}) && <FaCheckCircle color='green'/>
+                        ({r.addCheck == 'rejected'}) && <FaTimesCircle color='red'/>
+                        ({r.addCheck == 'pending'}) && <FaSpinner color='blue'/>
+                      </td>
+                      <td className='action'>
+                        <Link to="#" onClick={updateStatus('accepted')}><FaCheck/></Link>
+                        <Link to="#" onClick={updateStatus('rejected')}><FaTimes/></Link>
+                      </td>
+                    </tr>
+                  })
+              )}
+              {/* <tr>
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
@@ -70,7 +104,7 @@ export default function Applications() {
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaSpinner color='blue'/></td>
                 <td className='action'><a><FaCheck/></a><a><FaTimes/></a></td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
           </div>
