@@ -4,9 +4,32 @@ import TopBar from '../components/topbar';
 import Side from '../components/side';
 import { Link } from 'react-router-dom';
 import { FaBeer, FaCheck, FaCheckCircle, FaSpinner, FaTimes, FaTimesCircle } from 'react-icons/fa';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function Applications() {
 
+  const accessToken = JSON.parse(localStorage.getItem("API_TOKEN")).access_token;
+
+  useEffect(()=>{
+
+    axios.get('',{
+      params: {
+        // 'nic': `${newid}`
+        'nic':'987611421v'
+      },
+
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      }
+    }).then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
+
+  }
+  ,[])
 
   return (
     <>
