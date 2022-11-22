@@ -51,10 +51,9 @@ export default function Applications() {
         <div className='contentOne'>
           <div className='app-content'>
             <h2>Pending Applications</h2>
-          <table border="1">
               {(requests.length == 0) && ('No application requests found.')}
               {(requests.length != 0) && (
-                <>
+                <table border="1">
                 <thead>
                 <th>NIC or Passport No</th>
                 <th>Name</th>
@@ -86,7 +85,7 @@ export default function Applications() {
                     </tr>
                   })}
                 </tbody>
-                </>
+                </table>
               )}
               {/* <tr>
                 <td>997682521V</td>
@@ -108,7 +107,6 @@ export default function Applications() {
                 <td><FaSpinner color='blue'/></td>
                 <td className='action'><a><FaCheck/></a><a><FaTimes/></a></td>
               </tr> */}
-          </table>
           </div>
           <Link to={"/"}>Back</Link>
         </div>
