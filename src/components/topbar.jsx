@@ -56,17 +56,13 @@ export default function TopBar() {
             <div>
               <ul>
                 <li>{state.username}</li>
-                <li>{state.email}</li>
-                <li>{state.displayName}</li>
               </ul>
 
               <li><button onClick={() => signOut()}>Logout</button></li>
             </div>
           )
-          : <li><button onClick={ () => signIn() }>Login</button></li>
+          : <li><button onClick={ () => {signIn().then(res=>console.log(res))} }>Login</button></li>
         }
-          
-          <li><a href="#">Sign In</a></li>
         </ul>
       </div>
     </div>
