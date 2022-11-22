@@ -62,10 +62,10 @@ export default function Applications() {
                 <th>Address Check</th>
                 <th>Action</th>
             </thead>
-            <tbody>
               {(requests.length == 0) && ('No application requests found.')}
               {(requests.length != 0) && (
-                  requests.forEach(r=>{
+                <tbody>
+                  {requests.forEach(r=>{
                     <tr key={r.nic}>
                       <td>{r.nic}</td>
                       <td>{r.fullName}</td>
@@ -83,7 +83,8 @@ export default function Applications() {
                         <Link to="#" onClick={updateStatus('rejected')}><FaTimes/></Link>
                       </td>
                     </tr>
-                  })
+                  })}
+                </tbody>
               )}
               {/* <tr>
                 <td>997682521V</td>
@@ -105,7 +106,6 @@ export default function Applications() {
                 <td><FaSpinner color='blue'/></td>
                 <td className='action'><a><FaCheck/></a><a><FaTimes/></a></td>
               </tr> */}
-            </tbody>
           </table>
           </div>
           <Link to={"/"}>Back</Link>
