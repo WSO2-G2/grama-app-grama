@@ -57,10 +57,15 @@ export default function TopBar() {
     })();
   }, [state.isAuthenticated]);
 
+  const imageStyle={
+    width:'200px',
+    heigh:'300px',
+    marginTop:'-10px'
+  }
   return (
     <div className='topBar'>
       <div className='topLeft'>
-        <h2>Grama App</h2>
+      <img src='/logo.png' style={imageStyle}/>
       </div>
       <div className="topRight">
         <ul className='topList'>
