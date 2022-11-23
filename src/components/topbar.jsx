@@ -65,7 +65,7 @@ export default function TopBar() {
   return (
     <div className='topBar'>
       <div className='topLeft'>
-      <img src='/logo.png' style={imageStyle}/>
+      <img src='/logo1.png' style={imageStyle}/>
       </div>
       <div className="topRight">
         <ul className='topList'>
