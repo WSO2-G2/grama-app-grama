@@ -57,6 +57,7 @@ export default function Applications() {
         <div className='contentOne'>
           <div className='app-content'>
             <h2>Pending Applications</h2>
+            {console.log(requests)}
               {(requests.length == 0) && ('No application requests found.')}
               {(requests.length != 0) && (
                 <table border="1">
