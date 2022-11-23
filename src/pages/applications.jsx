@@ -65,8 +65,8 @@ export default function Applications() {
                 <th>Name</th>
                 <th>Address</th>
                 <th>Address Proof</th>
-                <th>Identity Check</th>
-                <th>Police Check</th>
+                {/* <th>Identity Check</th>
+                <th>Police Check</th> */}
                 <th>Address Check</th>
                 <th>Action</th>
               </thead>
@@ -77,12 +77,12 @@ export default function Applications() {
                       <td>{r.fullName}</td>
                       <td>{r.address}</td>
                       <td><Link to={r.image} target='_blank'>View</Link></td>
-                      <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
-                      <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
+                      {/* <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
+                      <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td> */}
                       <td>
-                        ({r.addCheck == 'Accepted'}) && <FaCheckCircle color='green'/>
-                        ({r.addCheck == 'Rejected'}) && <FaTimesCircle color='red'/>
-                        ({r.addCheck == 'Pending'}) && <FaSpinner color='blue'/>
+                        ({r.status === 'Accepted'}) && <FaCheckCircle color='green'/>
+                        ({r.status === 'Rejected'}) && <FaTimesCircle color='red'/>
+                        ({r.status === 'Pending'}) && <FaSpinner color='blue'/>
                       </td>
                       <td className='action'>
                         <Link to="#" onClick={updateStatus('Accepted')}><FaCheck/></Link>
