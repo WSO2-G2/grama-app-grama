@@ -73,7 +73,7 @@ export default function Applications() {
                 <th>Action</th>
               </thead>
                 <tbody>
-                  {requests.forEach(r=>(
+                  {requests.map(r=>(
                     <tr key={r.nic}>
                       <td>{r.nic}</td>
                       <td>{r.fullName}</td>
