@@ -13,7 +13,7 @@ export default function Applications() {
   const [requests, setRequests] = useState([]);
   const [gnd, setGnd] = useState('gnd');
 
-  function updateStatus(status){
+  const updateStatus = (status)=>{
     console.log(status);
   }
 
@@ -59,8 +59,8 @@ export default function Applications() {
           <div className='app-content'>
             <h2>Pending Applications</h2>
             {console.log(requests)}
-              {(requests.length == 0) && ('No application requests found.')}
-              {(requests.length != 0) && (
+              {(requests.length === 0) && ('No application requests found.')}
+              {(requests.length !== 0) && (
                 <table border="1">
                 <thead>
                 <th>NIC or Passport No</th>
@@ -87,8 +87,8 @@ export default function Applications() {
                         {(r.status === 'Pending') && <FaSpinner color='blue'/>}
                       </td>
                       <td className='action'>
-                        <button  onClick={updateStatus('Accepted')}><FaCheck/></button>
-                        <button  onClick={updateStatus('Rejected')}><FaTimes/></button>
+                        <Link  onClick={updateStatus('Accepted')}><FaCheck/></Link>
+                        <Link  onClick={updateStatus('Rejected')}><FaTimes/></Link>
                       </td>
                     </tr>
                   ))}
