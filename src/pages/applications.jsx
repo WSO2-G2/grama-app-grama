@@ -11,6 +11,7 @@ export default function Applications() {
 
   const accessToken = JSON.parse(localStorage.getItem("API_TOKEN")).access_token;
   const [requests, setRequests] = useState([]);
+  const [gnd, setGnd] = useState('gnd');
 
   function updateStatus(status){
     console.log(status);
@@ -27,7 +28,10 @@ export default function Applications() {
     }
 
     const getRequestDetails = ()=>{
-      return axios.get('https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-dev.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/requestdetails?',{
+      return axios.get('https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/requestdetails?',{
+        params: {
+          'gnd': `${gnd}`
+        },
         headers: {
           'Authorization': `Bearer ${accessToken}`,
         }
@@ -36,6 +40,8 @@ export default function Applications() {
 
     Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
       console.log(res)
+      let requestdetails = res[1].data.body;
+      setRequests(requestdetails);
     }).catch(err=>{
       console.log(err)
     })
@@ -74,13 +80,13 @@ export default function Applications() {
                       <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
                       <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
                       <td>
-                        ({r.addCheck == 'accepted'}) && <FaCheckCircle color='green'/>
-                        ({r.addCheck == 'rejected'}) && <FaTimesCircle color='red'/>
-                        ({r.addCheck == 'pending'}) && <FaSpinner color='blue'/>
+                        ({r.addCheck == 'Accepted'}) && <FaCheckCircle color='green'/>
+                        ({r.addCheck == 'Rejected'}) && <FaTimesCircle color='red'/>
+                        ({r.addCheck == 'Pending'}) && <FaSpinner color='blue'/>
                       </td>
                       <td className='action'>
-                        <Link to="#" onClick={updateStatus('accepted')}><FaCheck/></Link>
-                        <Link to="#" onClick={updateStatus('rejected')}><FaTimes/></Link>
+                        <Link to="#" onClick={updateStatus('Accepted')}><FaCheck/></Link>
+                        <Link to="#" onClick={updateStatus('Rejected')}><FaTimes/></Link>
                       </td>
                     </tr>
                   })}
