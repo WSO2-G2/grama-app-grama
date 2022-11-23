@@ -14,7 +14,11 @@ const Index = () => (
           clientID: "JPRovUcDTDjPogbC9seq2cIEzqoa",
           baseUrl: "https://api.asgardeo.io/t/wso2grama",
           scope: [ "openid","profile","email" ],
-          resourceServerURLs: "https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-dev.e1-us-east-azure.choreoapis.dev/ddrq/identitycheck/1.0.0"
+          resourceServerURLs: [
+            "7fa2c1a4-2bfc-4c58-899f-9569c112150b-dev.e1-us-east-azure.choreoapis.dev",
+            "https://sts.choreo.dev",
+            "https://api.asgardeo.io",
+          ]
       } }
   >
     <React.StrictMode>
