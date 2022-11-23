@@ -60,12 +60,12 @@ export default function TopBar() {
   const imageStyle={
     width:'200px',
     heigh:'300px',
-    marginTop:'-10px'
+    
   }
   return (
     <div className='topBar'>
       <div className='topLeft'>
-      <img src='/logo.png' style={imageStyle}/>
+      <img src='/logo1.png' style={imageStyle}/>
       </div>
       <div className="topRight">
         <ul className='topList'>
