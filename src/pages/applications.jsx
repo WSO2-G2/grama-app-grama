@@ -40,7 +40,8 @@ export default function Applications() {
 
     Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
       console.log(res)
-      let requestdetails = res[1].data.body;
+      let requestdetails = res[1].data;
+      console.log(requestdetails);
       setRequests(requestdetails);
     }).catch(err=>{
       console.log(err)
@@ -57,6 +58,7 @@ export default function Applications() {
         <div className='contentOne'>
           <div className='app-content'>
             <h2>Pending Applications</h2>
+            {console.log(requests)}
               {(requests.length == 0) && ('No application requests found.')}
               {(requests.length != 0) && (
                 <table border="1">
