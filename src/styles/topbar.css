@@ -84,6 +84,7 @@
 
 .logoutbut{
     border-radius: 10px;
+    width: 200px;
     border: 1px solid coral;
     background-color: transparent;
 }
