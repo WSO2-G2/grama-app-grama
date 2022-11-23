@@ -73,7 +73,7 @@ export default function Applications() {
                 <th>Action</th>
               </thead>
                 <tbody>
-                  {requests.forEach(r=>{
+                  {requests.forEach(r=>(
                     <tr key={r.nic}>
                       <td>{r.nic}</td>
                       <td>{r.fullName}</td>
@@ -87,11 +87,11 @@ export default function Applications() {
                         ({r.status === 'Pending'}) && <FaSpinner color='blue'/>
                       </td>
                       <td className='action'>
-                        <Link to="#" onClick={updateStatus('Accepted')}><FaCheck/></Link>
-                        <Link to="#" onClick={updateStatus('Rejected')}><FaTimes/></Link>
+                        <Link onClick={updateStatus('Accepted')}><FaCheck/></Link>
+                        <Link onClick={updateStatus('Rejected')}><FaTimes/></Link>
                       </td>
                     </tr>
-                  })}
+                  ))}
                 </tbody>
                 </table>
               )}
