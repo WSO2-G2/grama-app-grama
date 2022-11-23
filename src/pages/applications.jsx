@@ -82,13 +82,13 @@ export default function Applications() {
                       {/* <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
                       <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td> */}
                       <td>
-                        ({r.status === 'Accepted'}) && <FaCheckCircle color='green'/>
-                        ({r.status === 'Rejected'}) && <FaTimesCircle color='red'/>
-                        ({r.status === 'Pending'}) && <FaSpinner color='blue'/>
+                        {(r.status === 'Accepted') && <FaCheckCircle color='green'/>}
+                        {(r.status === 'Rejected') && <FaTimesCircle color='red'/>}
+                        {(r.status === 'Pending') && <FaSpinner color='blue'/>}
                       </td>
                       <td className='action'>
-                        <Link onClick={updateStatus('Accepted')}><FaCheck/></Link>
-                        <Link onClick={updateStatus('Rejected')}><FaTimes/></Link>
+                        <Link to="#" onClick={updateStatus('Accepted')}><FaCheck/></Link>
+                        <Link to="#" onClick={updateStatus('Rejected')}><FaTimes/></Link>
                       </td>
                     </tr>
                   ))}
