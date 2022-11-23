@@ -16,7 +16,7 @@ export default function Home() {
         <div className='contentOne'>
           <p>Welcome!, Manage & Approve the Grama Certificate applications in a flash</p>
           {/* <a href="/options">Go &rarr;</a> */}
-          <Link to={"/applications"}>Go &rarr;</Link>
+          <Link to={"/applications"}>Get Started &rarr;</Link>
         </div>
         <div className='contentTwo'>
           <Side />
@@ -24,5 +24,7 @@ export default function Home() {
       </div>
     </div>
     </>
+
+   
   );
 }

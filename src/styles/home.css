@@ -51,6 +51,7 @@
 *{
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 .home{
     display: flex;
@@ -72,7 +73,7 @@
 
 .contentOne .contentOne a{
     display: block;
-    margin: 10% 30% 10% 4%;
+    /* margin: 10% 30% 10% 4%; */
     font-size: 18px;
     font-weight: 350;
     cursor: pointer;
@@ -100,7 +101,11 @@
 }
 
 .contentOne p {
-    padding: 10% 30% 10% 4%;
+    /* padding: 10% 30% 10% 4%; */
+    padding-bottom: 20px;
+    padding-right: 150px;
+    padding-top: 50px;
+    padding-left: 30px;
     font-size:xx-large;
 }
 
@@ -147,3 +152,20 @@
     margin-left: -100px;
     margin-right: 200px;
 }
+
+ .content .contentOne a{
+    background-color: coral;
+    text-decoration: none;
+    width: 200px;
+    /* height: 50px; */
+    margin-left: 40px;
+    margin-top: -10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+ }
+
+ .content .contentOne a:hover{
+    color: #fff;
+ }

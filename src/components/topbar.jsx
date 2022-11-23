@@ -75,7 +75,7 @@ export default function TopBar() {
               <li><button onClick={() => signOut()}>Logout</button></li>
             </div>
           )
-          : <li><button onClick={ () => {signIn().then(res=>console.log(res))} }>Login</button></li>
+          : <button onClick={ () => {signIn().then(res=>console.log(res))} } className='loginbutoon'>Login</button>
         }
         </ul>
       </div>
