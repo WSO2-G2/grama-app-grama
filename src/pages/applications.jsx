@@ -40,7 +40,8 @@ export default function Applications() {
 
     Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
       console.log(res)
-      let requestdetails = res[1].data.body;
+      let requestdetails = res[1].data;
+      console.log(requestdetails);
       setRequests(requestdetails);
     }).catch(err=>{
       console.log(err)
