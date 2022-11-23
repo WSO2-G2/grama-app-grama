@@ -45,7 +45,7 @@ export default function TopBar() {
       fetch("https://sts.choreo.dev/oauth2/token", {
         body: "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=" + idToken + "&subject_token_type=urn:ietf:params:oauth:token-type:jwt&requested_token_type=urn:ietf:params:oauth:token-type:jwt",
         headers: {
-          Authorization: "Basic VmhnbjEzMXI4Y0lnRjNTeGFlYlFzdnZJMnlBYTppZDFTVmI5WW5XNG4xUzM5cUpLRUhpU08wX1Vh",
+          Authorization: "Basic FGVB5M1LlWGJVuD1KFKYLTvzLWka1P95xabTHWYTuieTjcUl4LL9S74a",
           "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST"
