@@ -32,13 +32,13 @@ export default function Applications() {
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
-                <td><a href='/coverimg.jpg' target='_blank'>View</a></td>
+                <td><a href='/coverimg.jpg' target='_blank' className='viewButton'>View</a></td>
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaTimesCircle color='red'/></td>
                 <td><FaSpinner color='blue'/></td>
                 <td className='action'><a><FaCheck/></a><a><FaTimes/></a></td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
@@ -47,15 +47,15 @@ export default function Applications() {
                 <td><FaCheckCircle color='green'/></td>
                 <td><FaSpinner color='blue'/></td>
                 <td className='action'><a><FaCheck/></a><a><FaTimes/></a></td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
           </div>
           <Link to={"/"}>Back</Link>
         </div>
-        <div className='contentTwo'>
+        {/* <div className='contentTwo'>
           <Side />
-        </div>
+        </div> */}
       </div>
     </div>
     </>

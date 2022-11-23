@@ -3,7 +3,7 @@ import TopBar from '../components/topbar';
 import Side from '../components/side';
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
-
+import axios from 'axios'
 export default function Home() {
 
   useEffect(()=>{
