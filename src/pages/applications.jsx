@@ -87,8 +87,8 @@ export default function Applications() {
                         {(r.status === 'Pending') && <FaSpinner color='blue'/>}
                       </td>
                       <td className='action'>
-                        <Link  onClick={updateStatus('Accepted')}><FaCheck/></Link>
-                        <Link  onClick={updateStatus('Rejected')}><FaTimes/></Link>
+                        <button  onClick={updateStatus('Accepted')}><FaCheck/></button>
+                        <button  onClick={updateStatus('Rejected')}><FaTimes/></button>
                       </td>
                     </tr>
                   ))}
