@@ -16,46 +16,46 @@ export default function TopBar() {
     on
   } = useAuthContext();
 
-  const [ derivedAuthenticationState, setDerivedAuthenticationState ] = useState(null);
+  const [derivedAuthenticationState, setDerivedAuthenticationState] = useState(null);
 
-  
+
   useEffect(() => {
 
     if (!state?.isAuthenticated) {
-        return;
+      return;
     }
 
     (async () => {
-        const basicUserInfo = await getBasicUserInfo();
-        const idToken = await getIDToken();
-        const decodedIDToken = await getDecodedIDToken();
+      const basicUserInfo = await getBasicUserInfo();
+      const idToken = await getIDToken();
+      const decodedIDToken = await getDecodedIDToken();
 
-        const derivedState = {
-            authenticateResponse: basicUserInfo,
-            idToken: idToken.split("."),
-            decodedIdTokenHeader: JSON.parse(atob(idToken.split(".")[0])),
-            decodedIDTokenPayload: decodedIDToken
-        };
+      const derivedState = {
+        authenticateResponse: basicUserInfo,
+        idToken: idToken.split("."),
+        decodedIdTokenHeader: JSON.parse(atob(idToken.split(".")[0])),
+        decodedIDTokenPayload: decodedIDToken
+      };
 
-        console.log(derivedState);
+      console.log(derivedState);
 
-        setDerivedAuthenticationState(derivedState);
+      setDerivedAuthenticationState(derivedState);
 
-        // Exhange idToken for API token using STS in Choreo
-        fetch("https://sts.choreo.dev/oauth2/token", {
-          body: "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token="+idToken+"&subject_token_type=urn:ietf:params:oauth:token-type:jwt&requested_token_type=urn:ietf:params:oauth:token-type:jwt",
-          headers: {
-            Authorization: "Basic VmhnbjEzMXI4Y0lnRjNTeGFlYlFzdnZJMnlBYTppZDFTVmI5WW5XNG4xUzM5cUpLRUhpU08wX1Vh",
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          method: "POST"
-        })
+      // Exhange idToken for API token using STS in Choreo
+      fetch("https://sts.choreo.dev/oauth2/token", {
+        body: "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=" + idToken + "&subject_token_type=urn:ietf:params:oauth:token-type:jwt&requested_token_type=urn:ietf:params:oauth:token-type:jwt",
+        headers: {
+          Authorization: "Basic VmhnbjEzMXI4Y0lnRjNTeGFlYlFzdnZJMnlBYTppZDFTVmI5WW5XNG4xUzM5cUpLRUhpU08wX1Vh",
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "POST"
+      })
         .then((response) => response.json())
-        .then((resJson) => localStorage.setItem("API_TOKEN",JSON.stringify(resJson)))
-        .catch((err) => {console.log("acess token failed!!");console.log(err)})
-        
-      })();
-    }, [ state.isAuthenticated ]);
+        .then((resJson) => localStorage.setItem("API_TOKEN", JSON.stringify(resJson)))
+        .catch((err) => { console.log("acess token failed!!"); console.log(err) })
+
+    })();
+  }, [state.isAuthenticated]);
 
   return (
     <div className='topBar'>
@@ -64,21 +64,24 @@ export default function TopBar() {
       </div>
       <div className="topRight">
         <ul className='topList'>
-        {
-        state.isAuthenticated
-          ? (
-            <div>
-              <ul>
-                <li>{state.username}</li>
-              </ul>
+          {
+            state.isAuthenticated
+              ? (
+                <div>
+                  <ul>
+                    <li>{state.username}</li>
+                  </ul>
+                  <ul>
+                    <button onClick={() => signOut()}>Logout</button>
+                  </ul>
 
-              <button onClick={() => signOut()}>Logout</button>
-            </div>
-          )
-          : <button onClick={ () => {signIn().then(res=>console.log(res))} } className='loginbutoon'>Login</button>
-        }
+
+                </div>
+              )
+              : <button onClick={() => { signIn().then(res => console.log(res)) }} className='loginbutoon'>Login</button>
+          }
         </ul>
       </div>
     </div>
   );
-  }
+}
