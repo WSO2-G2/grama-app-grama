@@ -4,9 +4,44 @@ import TopBar from '../components/topbar';
 import Side from '../components/side';
 import { Link } from 'react-router-dom';
 import { FaBeer, FaCheck, FaCheckCircle, FaSpinner, FaTimes, FaTimesCircle } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function Applications() {
 
+  const accessToken = JSON.parse(localStorage.getItem("API_TOKEN")).access_token;
+  const [requests, setRequests] = useState([]);
+
+  function updateStatus(status){
+    console.log(status);
+  }
+
+  useEffect(()=>{
+
+    const getUserDetails = ()=>{
+      return axios.get('',{
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        }
+      })
+    }
+
+    const getRequestDetails = ()=>{
+      return axios.get('',{
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        }
+      })
+    }
+
+    Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
+
+  }
+  ,[])
 
   return (
     <>
@@ -16,8 +51,10 @@ export default function Applications() {
         <div className='contentOne'>
           <div className='app-content'>
             <h2>Pending Applications</h2>
-          <table border="1">
-            <thead>
+              {(requests.length == 0) && ('No application requests found.')}
+              {(requests.length != 0) && (
+                <table border="1">
+                <thead>
                 <th>NIC or Passport No</th>
                 <th>Name</th>
                 <th>Address</th>
@@ -26,9 +63,31 @@ export default function Applications() {
                 <th>Police Check</th>
                 <th>Address Check</th>
                 <th>Action</th>
-            </thead>
-            <tbody>
-              <tr>
+              </thead>
+                <tbody>
+                  {requests.forEach(r=>{
+                    <tr key={r.nic}>
+                      <td>{r.nic}</td>
+                      <td>{r.fullName}</td>
+                      <td>{r.address}</td>
+                      <td><Link to={r.image} target='_blank'>View</Link></td>
+                      <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
+                      <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
+                      <td>
+                        ({r.addCheck == 'accepted'}) && <FaCheckCircle color='green'/>
+                        ({r.addCheck == 'rejected'}) && <FaTimesCircle color='red'/>
+                        ({r.addCheck == 'pending'}) && <FaSpinner color='blue'/>
+                      </td>
+                      <td className='action'>
+                        <Link to="#" onClick={updateStatus('accepted')}><FaCheck/></Link>
+                        <Link to="#" onClick={updateStatus('rejected')}><FaTimes/></Link>
+                      </td>
+                    </tr>
+                  })}
+                </tbody>
+                </table>
+              )}
+              {/* <tr>
                 <td>997682521V</td>
                 <td>J.P.M.Thushari</td>
                 <td>317, Carmel Mw, Palliyawatha, Wattala</td>
@@ -48,8 +107,6 @@ export default function Applications() {
                 <td><FaSpinner color='blue'/></td>
                 <td className='action'><a><FaCheck/></a><a><FaTimes/></a></td>
               </tr> */}
-            </tbody>
-          </table>
           </div>
           <Link to={"/"}>Back</Link>
         </div>

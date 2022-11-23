@@ -3,28 +3,10 @@ import TopBar from '../components/topbar';
 import Side from '../components/side';
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
-import axios from 'axios'
+
+import axios from 'axios';
+
 export default function Home() {
-
-  useEffect(()=>{
-    const try1 = ()=>{
-      return axios.get('https://ir-example.mir.prod.reco.microsoft.com/Reco/V1.0/New?modeling=adw&Count=5');
-    }
-
-    const try2 = ()=>{
-      return axios.get('https://ir-example.mir.prod.reco.microsoft.com/Reco/V1.0/New?modeling=adw&Count=5');
-    }
-
-    try{
-      Promise.all([try1,try2]).then(res=>{
-        // console.log(accessToken);
-        console.log(res);
-      });
-    }catch(err){
-      // console.log(accessToken);
-      console.log(err);
-    }
-  },[])
 
   return (
     <>
