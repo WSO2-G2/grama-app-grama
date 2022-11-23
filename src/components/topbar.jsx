@@ -74,7 +74,7 @@ export default function TopBar() {
               ? (
                 <div>
                   <ul>
-                    <li><span>{state.username} </span><span> <button onClick={() => signOut()}>Logout</button></span></li>
+                    <li><span>{state.username} </span><span> <button onClick={() => signOut()} className='logoutbut'>Logout</button></span></li>
                    
                   </ul>
                  

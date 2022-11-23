@@ -79,3 +79,9 @@
 .loginbutoon:hover{
     color: #fff;
 }
+
+.logoutbut{
+    border-radius: 10px;
+    border: 1px solid coral;
+    background-color: transparent;
+}
