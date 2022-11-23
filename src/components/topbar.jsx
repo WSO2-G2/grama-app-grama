@@ -60,7 +60,7 @@ export default function TopBar() {
   const imageStyle={
     width:'200px',
     heigh:'300px',
-    marginTop:'-10px'
+    
   }
   return (
     <div className='topBar'>
