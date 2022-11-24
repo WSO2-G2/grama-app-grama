@@ -77,8 +77,8 @@ export default function Applications() {
                         {(r.status === 'Pending') && 'Pending'}
                       </td>
                       <td className='action'>
-                        <Link to="#"  onClick={() => updateStatus('Accepted')}><FaCheck/></Link>
-                        <Link to="#"  onClick={() =>updateStatus('Rejected')}><FaTimes/></Link>
+                        <Link to="#"  onClick={() => updateStatus('Accepted')} className='accepttag'><FaCheck/></Link>
+                        <Link to="#"  onClick={() =>updateStatus('Rejected')} className='rejectR'><FaTimes/></Link>
                       </td>
                     </tr>
                   ))}
