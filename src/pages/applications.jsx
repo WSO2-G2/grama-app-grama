@@ -1,4 +1,4 @@
-import '../styles/home.css';
+// import '../styles/home.css';
 import '../styles/application.css';
 import TopBar from '../components/topbar';
 import Side from '../components/side';
@@ -78,7 +78,7 @@ export default function Applications() {
                       <td>{r.nic}</td>
                       <td>{r.fullName}</td>
                       <td>{r.address}</td>
-                      <td><Link to={r.image} target='_blank'>View</Link></td>
+                      <td><Link to={r.image} target='_blank' className='viewButton'>View</Link></td>
                       {/* <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
                       <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td> */}
                       <td>
