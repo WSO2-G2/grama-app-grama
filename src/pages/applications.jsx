@@ -13,19 +13,11 @@ export default function Applications() {
   const [requests, setRequests] = useState([]);
   const [gnd, setGnd] = useState('gnd');
 
-  function updateStatus(status){
+  const updateStatus = (status)=>{
     console.log(status);
   }
 
   useEffect(()=>{
-
-    const getUserDetails = ()=>{
-      return axios.get('',{
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-        }
-      })
-    }
 
     const getRequestDetails = ()=>{
       return axios.get('https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/getrequests?',{
@@ -38,10 +30,9 @@ export default function Applications() {
       })
     }
 
-    Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
+    Promise.all([getRequestDetails()]).then(res=>{
       console.log(res)
-      let requestdetails = res[1].data;
-      console.log(requestdetails);
+      let requestdetails = res[0].data;
       setRequests(requestdetails);
     }).catch(err=>{
       console.log(err)
@@ -58,9 +49,8 @@ export default function Applications() {
         <div className='contentOne'>
           <div className='app-content'>
             <h2>Pending Applications</h2>
-            {console.log(requests)}
-              {(requests.length == 0) && ('No application requests found.')}
-              {(requests.length != 0) && (
+              {(requests.length === 0) && ('No application requests found.')}
+              {(requests.length !== 0) && (
                 <table border="1">
                 <thead>
                 <th>NIC or Passport No</th>
@@ -76,19 +66,19 @@ export default function Applications() {
                   {requests.map(r=>(
                     <tr key={r.nic}>
                       <td>{r.nic}</td>
-                      <td>{r.fullName}</td>
+                      <td>{r.name}</td>
                       <td>{r.address}</td>
                       <td><Link to={r.image} target='_blank' className='viewButton'>View</Link></td>
                       {/* <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
                       <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td> */}
                       <td>
-                        ({r.status === 'Accepted'}) && <FaCheckCircle color='green'/>
-                        ({r.status === 'Rejected'}) && <FaTimesCircle color='red'/>
-                        ({r.status === 'Pending'}) && <FaSpinner color='blue'/>
+                        {(r.status === 'Accepted') && <FaCheckCircle color='green'/>}
+                        {(r.status === 'Rejected') && <FaTimesCircle color='red'/>}
+                        {(r.status === 'Pending') && 'Pending'}
                       </td>
                       <td className='action'>
-                        <Link onClick={updateStatus('Accepted')}><FaCheck/></Link>
-                        <Link onClick={updateStatus('Rejected')}><FaTimes/></Link>
+                        <Link to="#"  onClick={() => updateStatus('Accepted')}><FaCheck/></Link>
+                        <Link to="#"  onClick={() =>updateStatus('Rejected')}><FaTimes/></Link>
                       </td>
                     </tr>
                   ))}
