@@ -19,14 +19,6 @@ export default function Applications() {
 
   useEffect(()=>{
 
-    const getUserDetails = ()=>{
-      return axios.get('',{
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-        }
-      })
-    }
-
     const getRequestDetails = ()=>{
       return axios.get('https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/getrequests?',{
         params: {
@@ -38,9 +30,9 @@ export default function Applications() {
       })
     }
 
-    Promise.all([getUserDetails(),getRequestDetails()]).then(res=>{
+    Promise.all([getRequestDetails()]).then(res=>{
       console.log(res)
-      let requestdetails = res[1].data;
+      let requestdetails = res[0].data;
       setRequests(requestdetails);
     }).catch(err=>{
       console.log(err)
@@ -74,7 +66,7 @@ export default function Applications() {
                   {requests.map(r=>(
                     <tr key={r.nic}>
                       <td>{r.nic}</td>
-                      <td>{r.fullName}</td>
+                      <td>{r.name}</td>
                       <td>{r.address}</td>
                       <td><a href={r.image} target='_blank'>View</a></td>
                       {/* <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
