@@ -74,7 +74,7 @@ export default function Applications() {
                       <td>
                         {(r.status === 'Accepted') && <FaCheckCircle color='green'/>}
                         {(r.status === 'Rejected') && <FaTimesCircle color='red'/>}
-                        {(r.status === 'Pending') && <FaSpinner color='blue'/>}
+                        {(r.status === 'Pending') && 'Pending'}
                       </td>
                       <td className='action'>
                         <Link to="#"  onClick={() => updateStatus('Accepted')}><FaCheck/></Link>
