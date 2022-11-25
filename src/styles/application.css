@@ -59,10 +59,14 @@
 
 .accepttag{
     width: 50px !important;
-    background-color: green !important;
+    background-color: rgb(91, 183, 91) !important;
 }
 
 .rejectR{
     width: 50px !important;
-    background-color: green !important;
+    background-color: rgb(154, 75, 75) !important;
+}
+
+.tableDiv{
+    display: flex;
 }
