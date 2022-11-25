@@ -60,15 +60,18 @@
 .accepttag{
     width: 50px !important;
     background-color: rgb(91, 183, 91) !important;
+    border: .5px solid grey !important;
     margin: 10px;
 }
 
 .rejectR{
     width: 50px !important;
     background-color: rgb(195, 50, 50) !important;
+    border: .5px solid grey !important;
 }
 
 .tableDiv{
     display: flex;
     padding: 10px;
+    border: none;
 }
