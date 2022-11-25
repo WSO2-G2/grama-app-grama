@@ -74,5 +74,5 @@
 .tableDiv{
     display: flex;
     padding: 10px;
-    border: none;
+    border: none !important;
 }
