@@ -59,5 +59,10 @@
 
 .accepttag{
     width: 50px !important;
-    background-color: green;
+    background-color: green !important;
+}
+
+.rejectR{
+    width: 50px !important;
+    background-color: green !important;
 }
