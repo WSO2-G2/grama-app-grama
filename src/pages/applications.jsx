@@ -13,6 +13,10 @@ export default function Applications() {
   const [requests, setRequests] = useState([]);
   const [gnd, setGnd] = useState('gnd');
 
+  if(!localStorage.getItem('state')){
+    history.push('/');
+  }
+
   const updateStatus = (status)=>{
     console.log(status);
   }

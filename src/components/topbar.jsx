@@ -38,6 +38,7 @@ export default function TopBar() {
       };
 
       console.log(derivedState);
+      localStorage.setItem("state", state.isAuthenticated)
 
       setDerivedAuthenticationState(derivedState);
 
@@ -74,7 +75,7 @@ export default function TopBar() {
               ? (
                 <div>
                   <ul>
-                    <li><span>{state.username} </span><span> <button onClick={() => signOut()} className='logoutbut'>Logout</button></span></li>
+                    <li><span>{state.username} </span><span> <button onClick={() =>{ localStorage.removeItem("API_TOKEN"); localStorage.removeItem("state"); signOut(); }} className='logoutbut'>Logout</button></span></li>
                    
                   </ul>
                  
