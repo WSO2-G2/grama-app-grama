@@ -34,7 +34,7 @@ export default function Applications() {
         form,
         {
           params: {
-              'nic': `${r.nic}`,
+              'nic': `${data.nic}`,
               'phone': '+94717754881'
           },
           headers: {
