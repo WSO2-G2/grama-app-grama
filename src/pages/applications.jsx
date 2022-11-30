@@ -2,7 +2,7 @@
 import '../styles/application.css';
 import TopBar from '../components/topbar';
 import Side from '../components/side';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FaBeer, FaCheck, FaCheckCircle, FaSpinner, FaTimes, FaTimesCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -14,6 +14,7 @@ export default function Applications() {
   const accessToken = JSON.parse(localStorage.getItem("API_TOKEN")).access_token;
   const [requests, setRequests] = useState([]);
   const [gnd, setGnd] = useState('gnd');
+  const history = useHistory();
 
   if(!localStorage.getItem('state')){
     history.push('/');
