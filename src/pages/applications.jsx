@@ -134,7 +134,8 @@ export default function Applications() {
                       <td>{r.nic}</td>
                       <td>{r.name}</td>
                       <td>{r.address}</td>
-                      <td><Link to={r.image} target='_blank' className='viewButton'>View</Link></td>
+                      <td><a href={r.image} target='_blank' className='viewButton'>View</a></td>
+                      {/* <td><Link to={r.image} target='_blank' className='viewButton'>View</Link></td> */}
                       {/* <td>({r.idCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td>
                       <td>({r.policeCheck})?<FaCheckCircle color='green'/> : <FaTimesCircle color='red'/></td> */}
                       <td>
