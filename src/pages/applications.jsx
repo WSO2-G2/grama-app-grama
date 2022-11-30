@@ -29,7 +29,7 @@ export default function Applications() {
     form.append('status', status);
 
     try{
-      axios.post(
+      axios.patch(
         'https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/updateStatus',
         {
           'status' : `${status}`
