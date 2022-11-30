@@ -99,6 +99,7 @@ export default function Applications() {
         <div className='contentOne'>
           <div className='app-content'>
             <h2>Pending Applications</h2>
+            <Link to={"/"} style={{alignSelf:'self-end'}}>Back</Link>
               {(requests.length === 0) && ('No application requests found.')}
               {(requests.length !== 0) && (
                 <table border="1">
@@ -135,7 +136,6 @@ export default function Applications() {
                 </table>
               )}
           </div>
-          <Link to={"/"}>Back</Link>
         </div>
         {/* <div className='contentTwo'>
           <Side />
