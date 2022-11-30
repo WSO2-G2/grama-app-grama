@@ -40,9 +40,7 @@ export default function Applications() {
               'phone': '+94717754881'
           },
           headers: {
-              'accept': 'application/json',
-              'Content-Type': 'application/json',
-              'API-Key': `${accessToken}`
+            'Authorization': `Bearer ${accessToken}`,
           }
         }
       ).then((res)=>{
