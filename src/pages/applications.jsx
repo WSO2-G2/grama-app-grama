@@ -28,42 +28,42 @@ export default function Applications() {
     const form = new FormData();
     form.append('status', status);
 
-    // try{
-    //   axios.post(
-    //     'https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/',
-    //     form,
-    //     {
-    //       params: {
-    //           'nic': `${r.nic}`,
-    //           'phone': '+94717754881'
-    //       },
-    //       headers: {
-    //         'Authorization': `Bearer ${accessToken}`,
-    //       },
-    //       body: {
-    //         'status' : `${status}`
-    //       }
-    //     }
-    //   ).then((res)=>{
-    //     console.log(res);
-    //     Swal.fire({
-    //       icon: 'success',
-    //       title: `${status} Successfully`,
-    //       text: 'Request status updated succesfully.',
-    //     }).then(() => {
-    //       window.location.href = "/applications"
-    //     })
-    //   })
-    // }catch(err){
-    //   console.log(err)
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Try Again',
-    //     text: 'Error in updating the Request status.',
-    //   }).then(() => {
-    //     window.location.href = "/applications"
-    //   })
-    // }
+    try{
+      axios.post(
+        'https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/',
+        form,
+        {
+          params: {
+              'nic': `${r.nic}`,
+              'phone': '+94717754881'
+          },
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+          },
+          body: {
+            'status' : `${status}`
+          }
+        }
+      ).then((res)=>{
+        console.log(res);
+        Swal.fire({
+          icon: 'success',
+          title: `${status} Successfully`,
+          text: 'Request status updated succesfully.',
+        }).then(() => {
+          window.location.href = "/applications"
+        })
+      })
+    }catch(err){
+      console.log(err)
+      Swal.fire({
+        icon: 'error',
+        title: 'Try Again',
+        text: 'Error in updating the Request status.',
+      }).then(() => {
+        window.location.href = "/applications"
+      })
+    }
 
     // const response = axios.post(
     //   'https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/',
