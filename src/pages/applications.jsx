@@ -23,47 +23,48 @@ export default function Applications() {
     console.log(data)
     console.log(status);
     const phone = '+94717754881'
+    console.log(process.env.PHONE);
     let updated = requests.filter((e) => e.nic != data.nic);
     setRequests(updated);
     console.log(updated)
 
-    // try{
-    //   axios.patch(
-    //     'https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/updateStatus',
-    //     {
-    //       'status' : `${status}`
-    //     },
-    //     {
-    //       params: {
-    //           'nic': `${data.nic}`,
-    //           'phone': '+94717754881'
-    //       },
-    //       headers: {
-    //         'Authorization': `Bearer ${accessToken}`,
-    //       }
-    //     }
-    //   ).then((res)=>{
-    //     console.log(res);
-    //     let updated = requests.filter((e) => e.nic != data.nic);
-    //     setRequests(updated);
-    //     Swal.fire({
-    //       icon: 'success',
-    //       title: `${status} Successfully`,
-    //       text: 'Request status updated succesfully.',
-    //     }).then(() => {
-    //       window.location.href = "/applications"
-    //     })
-    //   })
-    // }catch(err){
-    //   console.log(err);
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Try Again',
-    //     text: 'Error in updating the Request status.',
-    //   }).then(() => {
-    //     window.location.href = "/applications"
-    //   })
-    // }
+    try{
+      axios.patch(
+        'https://7fa2c1a4-2bfc-4c58-899f-9569c112150b-prod.e1-us-east-azure.choreoapis.dev/ddrq/gramaconnect/1.0.0/updateStatus',
+        {
+          'status' : `${status}`
+        },
+        {
+          params: {
+              'nic': `${data.nic}`,
+              'phone': '+94717754881'
+          },
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+          }
+        }
+      ).then((res)=>{
+        console.log(res);
+        let updated = requests.filter((e) => e.nic != data.nic);
+        setRequests(updated);
+        Swal.fire({
+          icon: 'success',
+          title: `${status} Successfully`,
+          text: 'Request status updated succesfully.',
+        }).then(() => {
+          window.location.href = "/applications"
+        })
+      })
+    }catch(err){
+      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Try Again',
+        text: 'Error in updating the Request status.',
+      }).then(() => {
+        window.location.href = "/applications"
+      })
+    }
 
   }
 
