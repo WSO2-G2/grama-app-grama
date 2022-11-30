@@ -40,8 +40,10 @@ export default function Applications() {
               'phone': '+94717754881'
           },
           headers: {
-            'Authorization': `Bearer ${accessToken}`,
-          },
+              'accept': 'application/json',
+              'Content-Type': 'application/json',
+              'API-Key': `${accessToken}`
+          }
         }
       ).then((res)=>{
         console.log(res);
